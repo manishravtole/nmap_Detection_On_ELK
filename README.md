@@ -81,6 +81,7 @@ event.code: "4798"
 **Screenshot — Nmap Scan Detected in ELK (Kibana):**
 
 ![Detect_ELK](screenshots/nmapScan.png)
+--------------------------------------------------
 ![Detect_using_Search](screenshots/Event4798.png)
 *Event ID 4798 logs detected in Kibana after Nmap scan from Kali Linux*
 
