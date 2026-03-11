@@ -2,7 +2,7 @@
 A mini-SIEM project demonstrating Nmap scan detection using the ELK Stack. This project uses Logstash to ingest network logs, Elasticsearch to index scanning patterns
 
 
-    # 🔍 Nmap Scan Detection Using ELK Stack (SIEM Lab)
+# 🔍 Nmap Scan Detection Using ELK Stack (SIEM Lab)
 
 ![Project Banner](https://img.shields.io/badge/SIEM-ELK%20Stack-blue?style=for-the-badge&logo=elastic)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
@@ -23,13 +23,13 @@ This lab simulates a real-world SOC analyst workflow:
 
 ## 🛠️ Lab Environment
 
-| Component       | Details                          |
-|----------------|----------------------------------|
-| Attacker Machine | Kali Linux                     |
-| Target Machine   | Windows (with Winlogbeat/Sysmon) |
-| SIEM Platform    | ELK Stack (Elasticsearch + Logstash + Kibana) |
-| Detection Method | Windows Event ID 4798           |
-| Network Setup    | Host-Only / Internal Network    |
+| Component        | Details                                        |
+|------------------|------------------------------------------------|
+| Attacker Machine | Kali Linux                                     |
+| Target Machine   | Windows (with Winlogbeat/Sysmon)               |
+| SIEM Platform    | ELK Stack (Elasticsearch + Logstash + Kibana)  |
+| Detection Method | Windows Event ID 4798                          |
+| Network Setup    | Host-Only / Internal Network                   |
 
 ---
 
@@ -54,11 +54,8 @@ nmap -sV -A -T4 <Target-IP>
 
 **Screenshot — Nmap Scan from Kali Linux:**
 
-
-```
 ![nmap_scan Kali](screenshots/nmapScanKali.png)
-Caption: Nmap scan executed from Kali Linux targeting the Windows host
-```
+*Nmap scan executed from Kali Linux targeting the Windows host*
 
 ---
 
@@ -83,22 +80,20 @@ event.code: "4798"
 
 **Screenshot — Nmap Scan Detected in ELK (Kibana):**
 
-```
 ![Detect_ELK](screenshots/nmapScan.png)
 ![Detect_using_Search](screenshots/Event4798.png)
-Caption: Event ID 4798 logs detected in Kibana after Nmap scan from Kali Linux
-```
+*Event ID 4798 logs detected in Kibana after Nmap scan from Kali Linux*
 
 **Key fields observed in the logs:**
 
-| Field                  | Value / Description                          |
-|-----------------------|----------------------------------------------|
-| `event.code`          | 4798                                         |
-| `winlog.event_id`     | 4798                                         |
-| `event.action`        | User Account Local Group Membership Enumerated |
-| `source.ip`           | Kali Linux IP (Attacker)                     |
-| `destination.ip`      | Windows Host (Target)                        |
-| `@timestamp`          | Time of scan activity                        |
+| Field              | Value / Description                              |
+|--------------------|--------------------------------------------------|
+| `event.code`       | 4798                                             |
+| `winlog.event_id`  | 4798                                             |
+| `event.action`     | User Account Local Group Membership Enumerated   |
+| `source.ip`        | Kali Linux IP (Attacker)                         |
+| `destination.ip`   | Windows Host (Target)                            |
+| `@timestamp`       | Time of scan activity                            |
 
 ---
 
@@ -108,19 +103,17 @@ A **Kibana visualization (Pie Chart)** was created to show the distribution of *
 
 **Screenshot — Pie Chart of Event IDs in Kibana:**
 
-```
 ![Pie chart](screenshots/piechart.png)
-Caption: Kibana Pie Chart — Distribution of Windows Event IDs, showing spike in Event ID 4798
-```
+*Kibana Pie Chart — Distribution of Windows Event IDs, showing spike in Event ID 4798*
 
 ---
 
 ## 🧠 MITRE ATT&CK Mapping
 
-| Tactic          | Technique                        | ID      |
-|----------------|----------------------------------|---------|
-| Reconnaissance  | Network Service Discovery        | T1046   |
-| Discovery       | Account Discovery: Local Account | T1087.001 |
+| Tactic         | Technique                         | ID        |
+|----------------|-----------------------------------|-----------|
+| Reconnaissance | Network Service Discovery         | T1046     |
+| Discovery      | Account Discovery: Local Account  | T1087.001 |
 
 ---
 
@@ -138,18 +131,19 @@ Caption: Kibana Pie Chart — Distribution of Windows Event IDs, showing spike i
 ```
 nmap-detection-elk/
 │
-├── README.md                   ← This file
+├── README.md                    ← This file
 ├── screenshots/
-│   ├── nmap_scan_kali.png      ← Nmap scan from Kali Linux
-│   ├── nmap_detected_elk.png   ← Detection in Kibana
-│   └── event_id_pie_chart.png  ← Pie chart of Event IDs
+│   ├── nmapScanKali.png         ← Nmap scan from Kali Linux
+│   ├── nmapScan.png             ← Detection in Kibana
+│   ├── Event4798.png            ← Detection using KQL search
+│   └── piechart.png             ← Pie chart of Event IDs
 ```
 
 ---
 
 ## 👤 Author
 
-**Manish Ravtole**  
+**Manish Ravtole**
 BCA Student | Cybersecurity Enthusiast | SOC Analyst (Aspiring)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://linkedin.com/in/manishravtole)
