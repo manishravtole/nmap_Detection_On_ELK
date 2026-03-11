@@ -56,7 +56,7 @@ nmap -sV -A -T4 <Target-IP>
 
 
 ```
-![Alt Text](screenshots/nmapScanKali.png)
+![nmap_scan Kali](screenshots/nmapScanKali.png)
 Caption: Nmap scan executed from Kali Linux targeting the Windows host
 ```
 
@@ -84,8 +84,8 @@ event.code: "4798"
 **Screenshot — Nmap Scan Detected in ELK (Kibana):**
 
 ```
-![Alt Text](screenshots/nmapScan.png)
-![Alt Text](screenshots/Event4798.png)
+![Detect_ELK](screenshots/nmapScan.png)
+![Detect_using_Search](screenshots/Event4798.png)
 Caption: Event ID 4798 logs detected in Kibana after Nmap scan from Kali Linux
 ```
 
@@ -109,7 +109,7 @@ A **Kibana visualization (Pie Chart)** was created to show the distribution of *
 **Screenshot — Pie Chart of Event IDs in Kibana:**
 
 ```
-![Alt Text](screenshots/piechart.png)
+![Pie chart](screenshots/piechart.png)
 Caption: Kibana Pie Chart — Distribution of Windows Event IDs, showing spike in Event ID 4798
 ```
 
